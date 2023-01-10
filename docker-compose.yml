@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  cypress:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: ["cypress","run"]
+    image: node:lts
+    volumes:
+        - ./artifacts:/test/cypress/videos
+        - ./artifacts:/test/cypress/screenshots

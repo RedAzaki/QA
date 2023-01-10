@@ -1,0 +1,19 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dock:int": "docker-compose --file docker-compose.yml up --exit-code-from cypress --build cypress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.1.0",
+    "cypress-file-upload": "^5.0.8"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1"
+  }
+}
