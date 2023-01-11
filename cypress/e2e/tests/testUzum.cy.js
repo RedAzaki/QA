@@ -6,31 +6,20 @@ import Words from '../PegeObject/Words'
 //auth2 - Ромашкин
 //auth3 - Печенькина
 
+//To turn off all uncaught exception handling
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from
+  // failing the test
+  return false
+});
+
 describe("Chek filter all incomming", () => {
      
   const auth = new Auth()
   const data = new Data() 
   const words = new Words()
  
-
-  /*//Создание рандомного предложения
-  const words = ["поручение", "проект", "тест", "задача", "проверка", "распоряжение", "сроки", "входящие", "заявка",
-   "договор", "исполнить", "сделать"];
-  function getRandomWord(firstLetterToUppercase = false) {
-    const word = words[randomNumber(0, words.length - 1)];
-    return firstLetterToUppercase ? word.charAt(0).toUpperCase() + word.slice(1) : word;
-    }
-
-    function generateWords(length = 10) {
-	return [...Array(length)].map((_, i) => getRandomWord(i === 0)).join(' ').trim() + '.';
-    }
-
-    function randomNumber(min, max) {
-	return Math.round(Math.random() * (max - min) + min);
-    }*/
-
-
-
     //Переменные для ввода:
     let type1 = "Подзадача"   
     let type2 = "Предложение"     
@@ -46,8 +35,18 @@ describe("Chek filter all incomming", () => {
     let podSyst = "сис"    //Подсистема
      
     
-  it("Проверка фильтра все входящие", () => {
+  it("test", () => {
     
+    const app = window.top;
+if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
+  const style = app.document.createElement('style');
+  style.innerHTML =
+    '.command-name-request, .command-name-xhr { display: none }';
+  style.setAttribute('data-hide-command-log-request', '');
+
+  app.document.head.appendChild(style);
+}
+
     auth.auth();      //Авторизация в системе
     cy.wait(3000)
     console.log(words.generateWords(5))

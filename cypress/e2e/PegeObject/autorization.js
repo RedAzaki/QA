@@ -3,17 +3,19 @@ const login = new Login()
 
 class Auth{
 
-    auth(){        //Селедкин
-        cy.visit("https://uzum.uz/");
+    auth(){       
+         
+        cy.visit("https://www.livejournal.com/");
         cy.viewport(1920,1080);
         cy.wait(2000);
-        cy.get('a[data-test-id="link__logo"]').should('be.visible');                 
-        cy.title().should('eq', 'Uzum Market — интернет-магазин');   // проверка title вкладки
-        cy.get('input[placeholder="Логин"]').clear().type('user.ultra@bk.ru').should('have.value', 'user.ultra@bk.ru'); 
-        cy.get('input[placeholder=" Пароль"]').clear().type('%iPONeiRuy43').should('have.value', '%iPONeiRuy43');
-        cy.contains("Вход").click();
+        cy.get('.s-logo').should('be.visible');                 
+        cy.title().should('eq', 'Главное — ЖЖ');   // chek title tab
+        cy.get('.s-header-item__link--login').click();
+        cy.get('input[ng-init="loginForm.model.username=null"]').clear().type('testuser69').should('have.value', 'testuser69'); 
+        cy.get('input[ng-init="loginForm.model.password=null"]').clear().type('DZtcqekxY_cinr7').should('have.value', 'DZtcqekxY_cinr7');
+        cy.get('.b-loginform-btn--auth').contains("Log in").click();
         cy.wait(3000)
-        cy.get('div.logo-fido').should('be.visible');        
+        cy.get('h2[class="mainpage__category-title"]').contains('ЖЖ рекомендует').should('be.visible');        
              
     }   
 }    
