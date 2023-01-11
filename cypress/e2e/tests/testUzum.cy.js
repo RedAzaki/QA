@@ -1,5 +1,6 @@
 import Data from '../PegeObject/Data'
 import Auth from '../PegeObject/autorization'
+import Words from '../PegeObject/Words'
 
 //auth1 - Селедкин
 //auth2 - Ромашкин
@@ -9,9 +10,10 @@ describe("Chek filter all incomming", () => {
      
   const auth = new Auth()
   const data = new Data() 
+  const words = new Words()
  
 
-  //Создание рандомного предложения
+  /*//Создание рандомного предложения
   const words = ["поручение", "проект", "тест", "задача", "проверка", "распоряжение", "сроки", "входящие", "заявка",
    "договор", "исполнить", "сделать"];
   function getRandomWord(firstLetterToUppercase = false) {
@@ -25,7 +27,7 @@ describe("Chek filter all incomming", () => {
 
     function randomNumber(min, max) {
 	return Math.round(Math.random() * (max - min) + min);
-    }
+    }*/
 
 
 
@@ -48,6 +50,7 @@ describe("Chek filter all incomming", () => {
     
     auth.auth();      //Авторизация в системе
     cy.wait(3000)
+    console.log(words.generateWords(5))
 
     // Открыть меню
     cy.get('div[class="mat-mdc-tooltip-trigger sidebar-toggler not-active"]').click({timeout: 3000}); 
@@ -73,8 +76,8 @@ describe("Chek filter all incomming", () => {
         cy.get('tr').contains(`${soisp}`).dblclick({force: true});
     })*/
     cy.get('input[formcontrolname="dateEnd"]').type(`${data.TodayDate()}`);
-    cy.get('input[formcontrolname="text"]').type(`${generateWords(2)}`);
-    cy.get('div[data-placeholder="Insert text here ..."]').type(`${generateWords(5)}`);/*
+    cy.get('input[formcontrolname="text"]').type(`${words.generateWords(2)}`);
+    cy.get('div[data-placeholder="Insert text here ..."]').type(`${words.generateWords(5)}`);/*
 
     //Добавление attach
     cy.get('button').contains('Файлы').click();
