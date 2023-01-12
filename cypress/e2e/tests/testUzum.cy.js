@@ -36,17 +36,17 @@ describe("Chek filter all incomming", () => {
      
     
   it("test", () => {
-    
+    /*
+    //Скрывает API запросы в cypress
     const app = window.top;
-if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
-  const style = app.document.createElement('style');
-  style.innerHTML =
-    '.command-name-request, .command-name-xhr { display: none }';
-  style.setAttribute('data-hide-command-log-request', '');
-
-  app.document.head.appendChild(style);
-}
-
+    if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
+      const style = app.document.createElement('style');
+      style.innerHTML =
+      '.command-name-request, .command-name-xhr { display: none }';
+      style.setAttribute('data-hide-command-log-request', '');
+      app.document.head.appendChild(style);
+    }
+*/
     auth.auth();      //Авторизация в системе
     cy.wait(3000)
     console.log(words.generateWords(5))
