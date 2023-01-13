@@ -69,6 +69,7 @@ describe("XYZ Bank", () => {
     cy.get('button').contains('Customer Login').should('be.visible').click();
     cy.get('select').select(`${fullName}`).should('be.visible');
     cy.get('button').contains('Login').should('be.visible').click();
+    cy.get('sapn[.fontBig ng-binding]').contains(`${fullName}`);
 
     //Deposit
     cy.get('button').contains('Deposit').should('be.visible').click();
@@ -89,27 +90,6 @@ describe("XYZ Bank", () => {
 
 
 
-		/*
-    cy.get('button[ng-class="btnClass3"]').contains('Withdrawl').should('be.visible').click();
-    cy.get('.form-group').contains('Amount to be Withdrawn :').within(()=>{
-      cy.get('input[placeholder="amount"]').type(`${randomNumber}`);
-    })
-    
-    cy.get('button[class="btn btn-default"]').contains('Withdraw').should('be.visible').click();
-    cy.get(1000)
-    
-    cy.get('strong[class="ng-binding"]').contains(`${difference}`).should('be.visible');
-    console.log(difference)*/
-
-
-    
-    
-    
-    
-    
-    
-
-    
     
   })
 })
