@@ -1,3 +1,3 @@
 # Cypress
-Салют!
-Это рабочий проект, тестирование системы документооборота
+Hi everyone!
+This project is for anyone who wants to see my skills.
