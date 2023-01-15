@@ -69,7 +69,7 @@ describe("XYZ Bank", () => {
     cy.get('button').contains('Customer Login').should('be.visible').click();
     cy.get('select').select(`${fullName}`).should('be.visible');
     cy.get('button').contains('Login').should('be.visible').click();
-    cy.get('sapn[.fontBig ng-binding]').contains(`${fullName}`);
+    cy.get('span[class="fontBig ng-binding"]').contains(`${fullName}`);
 
     //Deposit
     cy.get('button').contains('Deposit').should('be.visible').click();
