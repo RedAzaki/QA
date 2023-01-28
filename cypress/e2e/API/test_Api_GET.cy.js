@@ -58,14 +58,44 @@ describe('Test API', ()=>{
                     }
                 })
             }).then((res2) =>{
+
                 const userId = res2.body.id
                 cy.log("user id is:" + userId)
+
                 expect(res2.status).to.eq(200)
                 expect(res2.body).to.have.property('id',userId)
                 expect(res2.body).to.have.property('name',payload.name)
                 expect(res2.body).to.have.property('status',payload.status)
                 expect(res2.body).to.have.property('email',`${testEmail}`)
-            })
+            })/*.then((res3) =>{
+
+                const userId = res3.body.data.id
+                cy.log("user id is:" + userId)
+
+                 //3. update user (PUT)
+                 cy.request({
+                    method: 'PUT',
+                    url: 'https://gorest.co.in/public/v1/users/'+userId,
+                    headers: {
+                        'Authorization': 'Bearer ' + accessToken
+                    },
+                    body: {
+                        "name":"Test name Updated",
+                        "gender":"male",
+                        "email": "update@gmail.com",
+                        "status":"inactive"
+                      }
+                }).then((res)=>{
+                    expect(res.status).to.eq(200)
+                    expect(res.body.data).has.property('email', 'update@gmail.com')
+                    expect(res.body.data).has.property('name','Test name Updated')
+                    expect(res.body.data).has.property('status','inactive')
+                    expect(res.body.data).has.property('gender','male')
+                })
+
+            })*/
         })
     })
 })
+
+//PUT пока не получается сделать за GET, но получается сделать за POST, надо разобраться как это можно устранить
