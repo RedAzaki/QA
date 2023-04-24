@@ -1,0 +1,10 @@
+stages:        
+  - test
+
+test:  
+  image: cypress/browsers:node18.12.0-chrome103-ff107
+  stage: test
+  script:  
+  - npm ci
+  - npm run ui-regression-allure
+  - npm run allure:report
