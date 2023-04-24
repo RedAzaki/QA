@@ -7,7 +7,7 @@
     "dock:int": "docker-compose --file docker-compose.yml up --exit-code-from cypress --build cypress",
     "test": "echo \"Error: no test specified\" && exit 1",
     "ui-regression": "cypress run --browser chrome --spec cypress/e2e/tests/**.js",
-    "ui-regression-allure": "cypress run --browser chrome --spec cypress/e2e/tests/**.js --env allure=true",
+    "ui-regression-allure": "cypress run --browser chrome --spec cypress/e2e/tests/**.js --env allure=true", 
     "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots cypress/videos || true",
     "allure:report": "allure generate allure-results --clean -o allure-report",
     "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true",
