@@ -14,7 +14,7 @@ describe("XYZ Bank", () => {
   let randomDeposit = "";
   let surname = surnames.generateSurnames(1);
   let name = names.generateNames(1);
-  let fullName = name + " " + surname;
+  let fullName = name + " " + surname; //dfdfd
 
   var pattern = "123456789";
   for (var i = 0; i < 3; i++)
